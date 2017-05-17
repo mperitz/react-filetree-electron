@@ -36,12 +36,6 @@ const getAllFiles = (dir) => {
   });
 };
 
-const readFile = dir => {
-  return fs.readFileAsync(dir)
-  .then(text => text);
-};
-
 module.exports = {
-  getAllFiles,
-  readFile
+  getAllFiles
 };

@@ -3,7 +3,6 @@
   "productName": "FileTree React-Electron",
   "version": "1.0.0",
   "description": "An easily styled dynamic filetree component for use in native electron apps",
-  "main": "main.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 node --trace-warnings ./test/runTests.js",
     "test-all": "npm run lint && npm run flow && npm run test && npm run build",
@@ -27,50 +26,7 @@
     "package": "npm run build && build --publish never",
     "package-win": "npm run build && build --win --x64",
     "package-linux": "npm run build && build --linux",
-    "package-all": "npm run build && build -mwl",
-    "cleanup": "mop -v"
-  },
-  "browserslist": "electron 1.4",
-  "build": {
-    "productName": "ElectronReact",
-    "appId": "org.develar.ElectronReact",
-    "files": [
-      "dist/",
-      "node_modules/",
-      "app.html",
-      "main.js",
-      "main.js.map",
-      "package.json"
-    ],
-    "dmg": {
-      "contents": [
-        {
-          "x": 130,
-          "y": 220
-        },
-        {
-          "x": 410,
-          "y": 220,
-          "type": "link",
-          "path": "/Applications"
-        }
-      ]
-    },
-    "win": {
-      "target": [
-        "nsis"
-      ]
-    },
-    "linux": {
-      "target": [
-        "deb",
-        "AppImage"
-      ]
-    },
-    "directories": {
-      "buildResources": "resources",
-      "output": "release"
-    }
+    "package-all": "npm run build && build -mwl"
   },
   "author": {
     "name": "M. Peritz",

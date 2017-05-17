@@ -43,13 +43,19 @@ class FileTree extends Component {
   componentDidMount() {
     return this.props.directory && this.props.directory.length &&
     getAllFiles(this.props.directory)
-    .then(files => this.setState({ files }))
+    .then(files => {
+      this.setState({ files })
+      console.log(files)
+    })
     .catch(console.error);
   }
 
   componentWillReceiveProps({ directory }) {
     return directory && getAllFiles(directory)
-    .then(files => this.setState({ files }))
+    .then(files => {
+      this.setState({ files })
+      console.log(files)
+    })
     .catch(console.error);
   }
 
