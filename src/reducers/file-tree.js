@@ -5,18 +5,18 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  const newState = Object.assign({}, state)
+  const newState = Object.assign({}, state);
   switch (action.type) {
     case TOGGLE_VISIBILITY:
-      newState.isVisible = Object.assign({}, newState.isVisible)
-      newState.isVisible[action.filePath] = !newState.isVisible[action.filePath]
-      break
+      newState.isVisible = Object.assign({}, newState.isVisible);
+      newState.isVisible[action.filePath] = !newState.isVisible[action.filePath];
+      break;
     default:
-      return state
+      return state;
   }
-  return newState
-}
+  return newState;
+};
 
-export default reducer
+export default reducer;
 
 export const toggleVisibility = filePath => ({ type: TOGGLE_VISIBILITY, filePath });

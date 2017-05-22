@@ -1,4 +1,3 @@
-import { spy } from 'sinon';
 import { toggleVisibility } from '../../src/reducers/file-tree';
 
 const testFile = {
