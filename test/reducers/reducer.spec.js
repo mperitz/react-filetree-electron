@@ -1,6 +1,6 @@
 import reducer, { toggleVisibility } from '../../src/reducers/file-tree';
 
-describe('reducer', () => {
+xdescribe('reducer', () => {
 
   it('should return initial state if no action provided', () => {
     expect(
@@ -10,7 +10,7 @@ describe('reducer', () => {
     .toEqual({ isVisible: {} });
   });
 
-  describe('should handle TOGGLE_VISIBILITY action if...', () => {
+  xdescribe('should handle TOGGLE_VISIBILITY action if...', () => {
 
     it('filePath is not a key on state.isVisible', () => {
       expect(

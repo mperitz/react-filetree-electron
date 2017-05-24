@@ -7,7 +7,7 @@ const pathToFakeFiles = path.resolve(__dirname, '..', 'fake-directory');
 let myTestObject;
 let newObject;
 
-describe('getAllFiles function', () => {
+xdescribe('getAllFiles function', () => {
 
   it('should create an array of file objects', () => {
     return getAllFiles(pathToFakeFiles)
@@ -33,7 +33,7 @@ describe('getAllFiles function', () => {
 
 });
 
-describe('deleteNonFontAwesomeKeys function', () => {
+xdescribe('deleteNonFontAwesomeKeys function', () => {
 
   beforeEach(() => {
     myTestObject = {

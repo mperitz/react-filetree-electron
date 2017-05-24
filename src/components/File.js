@@ -14,5 +14,5 @@ export default (props) => {
     <FontAwesome className="icon file" name="file" {...fontAwesomeProps} />
     :
     <FontAwesome className="icon file" name="file-o" {...fontAwesomeProps} />
-  )
-}
+  );
+};

@@ -1,25 +1,12 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 import Directory from './Directory';
 import File from './File';
-
 import { getAllFiles } from '../utils/file-functions';
-import { toggleVisibility } from '../reducers/file-tree';
 import { deleteNonFontAwesomeKeys } from '../utils/helpers';
 import defaultStyles from '../utils/defaultStyles';
 
 import '../utils/app.global.css';
-
-/*
-TODO:
-1. Themes - light and dark DONE
-2. FontAwesome props - should work on the font awesome icons DONE
-  - stack, inverse, and cssModule do not work - specify in readme
-3. Styling - default and custom DONE
-  - Do this by giving each element in the tree an object key
-4. Testing - components, themes, styles, redux (action creator, reducer), file-functions etc.
-*/
 
 /*
 QUESTIONS:
@@ -30,7 +17,7 @@ QUESTIONS:
     * configure package json
 */
 
-class FileTree extends Component {
+export default class FileTree extends Component {
   constructor() {
     super();
     this.state = {
@@ -95,7 +82,7 @@ class FileTree extends Component {
           return file.isDirectory ?
             <li key={filePath + ' Directory'} style={directoryStyle}>
               <div onClick={() => this.setVisibility(file.filePath)}>
-                <Directory visible={this.props.isVisible[file.filePath]} {...fontAwesomeProps} theme={this.props.directoryTheme} />{`               ${fileName}`}
+                <Directory className="directory" visible={this.props.isVisible[file.filePath]} {...fontAwesomeProps} theme={this.props.directoryTheme} />{`               ${fileName}`}
               </div>
               {this.props.isVisible[file.filePath] &&
               <FileTree
@@ -113,24 +100,10 @@ class FileTree extends Component {
               />}
             </li>
             :
-            <li key={filePath} onClick={() => this.onFileClick(file)} style={fileStyle}><File {...fontAwesomeProps} theme={this.props.fileTheme} />{`               ${fileName}`}</li>;
+            <li key={filePath} onClick={() => this.onFileClick(file)} style={fileStyle}><File className="file" {...fontAwesomeProps} theme={this.props.fileTheme} />{`               ${fileName}`}</li>;
           })
         }
       </ul>
     );
   }
 }
-
-const mapState = state => {
-  return {
-    isVisible: state.fileTree.isVisible
-  };
-};
-
-const mapDispatch = dispatch => {
-  return {
-    toggleVisibility: filePath => dispatch(toggleVisibility(filePath))
-  };
-};
-
-export default connect(mapState, mapDispatch)(FileTree);

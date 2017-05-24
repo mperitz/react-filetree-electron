@@ -5,7 +5,7 @@ const testFile = {
   filePath: '/Users/fake-user/projects/fake-project/app/components'
 };
 
-describe('toggleVisibility', () => {
+xdescribe('toggleVisibility', () => {
 
   it('should create a TOGGLE_VISIBILITY action', () => {
     expect(toggleVisibility(testFile.filePath)).toEqual({ type: 'TOGGLE_VISIBILITY', filePath: testFile.filePath });
