@@ -4,5 +4,5 @@ import logger from 'redux-logger'
 
 export default createStore(
   reducer,
-  applyMiddleware(logger)
+  // applyMiddleware(logger)
 );
