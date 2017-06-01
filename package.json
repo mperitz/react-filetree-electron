@@ -1,6 +1,6 @@
 {
   "name": "react-filetree-electron",
-  "productName": "FileTree React-Electron",
+  "productName": "react-filetree-electron",
   "version": "1.0.0",
   "description": "An easily styled dynamic filetree component for use in native electron apps",
   "scripts": {
