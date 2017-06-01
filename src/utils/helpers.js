@@ -2,7 +2,7 @@
 const deleteNonFontAwesomeKeys = (targetObj) => {
   const newObj = Object.assign({}, targetObj);
   const targetKeys = Object.keys(targetObj);
-  const fontAwesomeProps = {ariaLabel: true, border: true, className: true, fixedWidth: true,
+  const fontAwesomeProps = {ariaLabel: true, border: true, fixedWidth: true,
                             flip: true, pulse: true, rotate: true, size: true, spin: true, tag: true};
   targetKeys.forEach(key => {
     if (!fontAwesomeProps[key]) delete newObj[key];
