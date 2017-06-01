@@ -60,8 +60,6 @@ export default class FileTree extends Component {
     const directoryStyle = this.props.directoryStyle ? mergeStyleObjects(defaultStyles.directoryStyle, this.props.directoryStyle) : defaultStyles.directoryStyle;
     const fileStyle = this.props.fileStyle ? mergeStyleObjects(defaultStyles.fileStyle, this.props.fileStyle) : defaultStyles.fileStyle;
 
-    console.log('PROPS', this.props)
-
     return (
       files.length > 0 &&
       <ul className="_fileTree" style={fileTreeStyle} >
