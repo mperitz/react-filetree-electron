@@ -1,8 +1,9 @@
 {
   "name": "react-filetree-electron",
   "productName": "react-filetree-electron",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "An easily styled dynamic filetree component for use in native electron apps",
+  "main": "src/containers/FileTreeContainer.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 node --trace-warnings ./test/runTests.js",
     "test-all": "npm run lint && npm run flow && npm run test && npm run build",
