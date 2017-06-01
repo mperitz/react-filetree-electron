@@ -17,6 +17,6 @@ export default class extends Component {
       <Provider store={store}>
         <ConnectFileTree {...this.props} />
       </Provider>
-    )
+    );
   }
 }
