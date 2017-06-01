@@ -19,7 +19,7 @@ const setup = () => {
 
 let test;
 
-xdescribe('Directory component', () => {
+describe('Directory component', () => {
 
   beforeEach(() => {
     test = setup();

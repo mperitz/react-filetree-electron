@@ -50,7 +50,7 @@
       "\\.(css|less|sass|scss)$": "identity-obj-proxy"
     },
     "moduleFileExtensions": [
-      "js"
+      "js", "json"
     ],
     "moduleDirectories": [
       "node_modules",
@@ -131,6 +131,8 @@
   },
   "dependencies": {
     "bluebird": "^3.5.0",
+    "chai": "^4.0.0",
+    "chai-enzyme": "^0.7.1",
     "electron-debug": "^1.1.0",
     "eslint-config-fullstack": "^2.8.1",
     "extract-text-webpack-plugin": "^2.1.0",

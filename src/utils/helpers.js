@@ -10,6 +10,11 @@ const deleteNonFontAwesomeKeys = (targetObj) => {
   return newObj;
 };
 
+const mergeStyleObjects = (styleObj1, styleObj2) => {
+  return Object.assign({}, styleObj1, styleObj2);
+}
+
 module.exports = {
-  deleteNonFontAwesomeKeys
+  deleteNonFontAwesomeKeys,
+  mergeStyleObjects
 };

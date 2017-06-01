@@ -20,7 +20,7 @@ const setup = () => {
 
 let test;
 
-xdescribe('File component', () => {
+describe('File component', () => {
 
   beforeEach(() => {
     test = setup();

@@ -1,10 +1,14 @@
 import React from 'react';
 import path from 'path';
 import { spy } from 'sinon';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
+import chai from 'chai';
+import chaiEnzyme from 'chai-enzyme';
+chai.use(chaiEnzyme());
 
 import FileTree from '../../src/components/FileTree';
 import fileFunctions from '../../src/utils/file-functions';
+import defaultStyles from '../../src/utils/defaultStyles';
 
 const setup = () => {
   const props = {
@@ -32,9 +36,15 @@ const files = [
   { filePath: './fakefile2/path/name.js', isDirectory: false },
   { filePath: './fakedir1/path/folder1', isDirectory: true },
   { filePath: './fakedir2/path/folder2', isDirectory: true }
-]
+];
 
 describe('FileTree Component', () => {
+
+  afterEach(() => {
+    test.getAllFilesSpy.restore();
+    test.setVisibilitySpy.restore();
+    test.onFileClickSpy.restore();
+  });
 
   describe('lifecycle', () => {
 
@@ -67,12 +77,6 @@ describe('FileTree Component', () => {
       listItems = test.fileTree.find('li');
     });
 
-    afterEach(() => {
-      test.getAllFilesSpy.restore();
-      test.setVisibilitySpy.restore();
-      test.onFileClickSpy.restore();
-    });
-
     it('should render a list item for each file or directory', () => {
       expect(listItems.length).toEqual(4);
     });
@@ -101,20 +105,46 @@ describe('FileTree Component', () => {
 
     let fileTree, directory, file;
 
+    const mergeStyle = {
+      fileTreeStyle: {
+        color: 'purple',
+        size: 20,
+        margin: 50,
+        float: 'left',
+        fontFamily: 'times-new-roman'
+      },
+      directoryStyle: {
+        fontFamily: 'wingdings',
+        color: 'green',
+        marginBottom: 10
+      },
+      fileStyle: {
+        color: 'blue',
+        float: 'right'
+      }
+    };
+
     beforeEach(() => {
       test = setup();
-      fileTree = test.fileTree.find('ul');
-      directory = test.fileTree.find('li') // find directory li using key - check enzyme docs
-    })
+      test.fileTree.setState({ files });
+      fileTree = test.fileTree.find('._fileTree');
+      directory = test.fileTree.find('._directory');
+      file = test.fileTree.find('._file');
+    });
 
     it('should have default style props if none are specified', () => {
+      expect(fileTree.at(0).props().style).toEqual(defaultStyles.fileTreeStyle);
+      expect(directory.at(0).props().style).toEqual(defaultStyles.directoryStyle);
+      expect(file.at(0).props().style).toEqual(defaultStyles.fileStyle);
+    });
 
-    })
+    it('should merge any passed in style props with default', () => {
+      test.fileTree.setProps(mergeStyle);
+      expect(fileTree.at(0).props().style).toEqual(Object.assign(defaultStyles.fileTreeStyle, mergeStyle.fileTreeStyle));
+      expect(directory.at(0).props().style).toEqual(Object.assign(defaultStyles.directoryStyle, mergeStyle.directoryStyle));
+      expect(file.at(0).props().style).toEqual(Object.assign(defaultStyles.fileStyle, mergeStyle.fileStyle));
+    });
 
-    it('should have passed in style props if any are provided', () => {
-
-    })
-
-  })
+  });
 
 });
