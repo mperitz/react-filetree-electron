@@ -68,7 +68,6 @@ npm run dev
 
 ## Special Thanks
 * react-electron-boilerplate was used for the example and for development purposes (https://github.com/chentsulin/electron-react-boilerplate)
-* react-fontawesome was used for the directory and file icons (https://github.com/danawoodman/react-fontawesome)
 
 ## License
 MIT
