@@ -1,7 +1,7 @@
 {
   "name": "react-filetree-electron",
   "productName": "react-filetree-electron",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "An easily styled dynamic filetree component for use in native electron apps",
   "main": "src/containers/FileTreeContainer.js",
   "scripts": {
