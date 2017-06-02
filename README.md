@@ -1,6 +1,6 @@
 # react-filetree-electron
 
-### An fully customizable file tree that expands and contracts with the click of a button!
+### A fully customizable file tree that expands and contracts with the click of a button!
 
 <br/>
 
@@ -10,7 +10,7 @@
 
 ## Installation
 
-* **Note: requires a node version >= 6 and an npm version >= 3.**
+* **Note: requires node version >= 6 and an npm version >= 3.**
 
 ```bash
 npm install react-filetree-electron
