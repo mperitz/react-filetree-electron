@@ -1,7 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import { stub } from 'sinon';
-import FontAwesome from 'react-fontawesome';
+import { shallow } from 'enzyme';
 
 import File from '../../src/components/File';
 
@@ -26,33 +24,8 @@ describe('File component', () => {
     test = setup();
   });
 
-  it('should render a "file-o" FontAwesome file icon if no theme is provided', () => {
-    expect(test.file.find('.icon.file').root.node.props.name).toEqual('file-o');
-  });
-
-  it('should render a "file-o" FontAwesome file icon if "light" theme is provided', () => {
-    test.file.setProps({ theme: 'light' });
-    expect(test.file.find('.icon.file').root.node.props.name).toEqual('file-o');
-  });
-
-  it('should render a "file" FontAwesome file icon if "dark" theme is provided', () => {
-    test.file.setProps({ theme: 'dark' });
-    expect(test.file.find('.icon.file').root.node.props.name).toEqual('file');
-  });
-
-  it('should not render with the visible prop', () => {
-    expect(test.file.find('.icon.file').root.node.props.visible).toEqual(undefined);
-  });
-
-  it('should render with any passed down fontAwesomeProps', () => {
-    expect(test.file.find('.icon.file').root.node.props.size).toEqual('2x');
-    expect(test.file.find('.icon.file').root.node.props.pulse).toEqual(true);
-  });
-
-  it('rendered FontAwesome component should throw a warning to the console if a non-fontAwesomeProp is passed', () => {
-    const warnTest = stub(console, 'error');
-    mount(<FontAwesome fakeProperty="this should cause a warning" />);
-    expect(warnTest.called).toEqual(true);
+  it('should render a "file" icon', () => {
+    expect(test.file.find('.icon.file').props().src).toEqual('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfhBgIVHB2rGQ+zAAAAoklEQVQoz32RMQ6CQBBFn8SOhgMYKmtPQmIIHoDWK9gazkBDsbG2tLCw4ABUkFhaoI2JRzCBguAOMvCrv7Mvf/5mFwCc8JFak5DKQc5Qhhv7zjpo+nIk6hEtYUWG4TUNiOnyd4yJBy3MXEk1YUcgLi+cO2OBK4UAPr2xgM9GACX3f8DFE4A7Tqh4AvCmkU0tsCUE4MBj4kH6VP+L0YpazagBWgH/HwYM4tiKAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE3LTA2LTAyVDIxOjI4OjI5KzAyOjAwDyshxwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNy0wNi0wMlQyMToyODoyOSswMjowMH52mXsAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC');
   });
 
 });

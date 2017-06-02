@@ -1,7 +1,6 @@
 import { getAllFiles } from '../../src/utils/file-functions';
-import { deleteNonFontAwesomeKeys, mergeStyleObjects } from '../../src/utils/helpers';
+import { mergeStyleObjects } from '../../src/utils/helpers';
 import path from 'path';
-import { spy } from 'sinon';
 
 const pathToFakeFiles = path.resolve(__dirname, '..', 'fake-directory');
 let myTestObject, nextObject, merged;
@@ -38,22 +37,6 @@ describe('utility and helper functions', () => {
         .catch(err => {
           expect(err.message).toContain('ENOENT: no such file or directory');
         });
-    });
-
-  });
-
-  describe('deleteNonFontAwesomeKeys function', () => {
-
-    beforeEach(() => {
-      nextObject = deleteNonFontAwesomeKeys(myTestObject);
-    });
-
-    it('should delete only keys from an object that are not available as props on a react-fontawesome component', () => {
-      expect(Object.keys(nextObject)).toEqual(['flip', 'pulse']);
-    });
-
-    it('should not modify the original object', () => {
-      expect(Object.keys(myTestObject)).toEqual(['flip', 'pulse', 'nonFontAwesomeProp']);
     });
 
   });
