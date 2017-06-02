@@ -1,18 +1,9 @@
 import React from 'react';
-import FontAwesome from 'react-fontawesome';
-
-import { deleteNonFontAwesomeKeys } from '../utils/helpers';
 
 export default (props) => {
 
-  // FontAwesome component will throw an error if it doesn't recognize a property name.
-  // The following code deletes foreign properties to pass down to the Icon component.
-  const fontAwesomeProps = deleteNonFontAwesomeKeys(props);
-
   return (
-    props.theme === 'dark' ?
-    <FontAwesome className="icon file" name="file" {...fontAwesomeProps} />
-    :
-    <FontAwesome className="icon file" name="file-o" {...fontAwesomeProps} />
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfhBgIVHB2rGQ+zAAAAoklEQVQoz32RMQ6CQBBFn8SOhgMYKmtPQmIIHoDWK9gazkBDsbG2tLCw4ABUkFhaoI2JRzCBguAOMvCrv7Mvf/5mFwCc8JFak5DKQc5Qhhv7zjpo+nIk6hEtYUWG4TUNiOnyd4yJBy3MXEk1YUcgLi+cO2OBK4UAPr2xgM9GACX3f8DFE4A7Tqh4AvCmkU0tsCUE4MBj4kH6VP+L0YpazagBWgH/HwYM4tiKAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE3LTA2LTAyVDIxOjI4OjI5KzAyOjAwDyshxwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNy0wNi0wMlQyMToyODoyOSswMjowMH52mXsAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC" className="icon file" />
   );
+
 };

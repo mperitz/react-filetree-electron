@@ -37,24 +37,14 @@ const directory = '/Users/Your-Name-Here/Directory'
 
 ## FileTree Props
 ### All props are optional **except directory**.
-| Property         | Type     | Default                                         | Description                                                                                 |
-| :--------------- |:--------:| :----------------------------------------------:| :------------------------------------------------------------------------------------------ |
-| directory        | string   |                                                 | The directory that acts as the tree root.                                                   |
-| onFileClick      | function |                                                 | A function to be performed when a user clicks a file list item (not a directory list item). |
-| directoryTheme   | string   | 'light'                                         | Theme for the directory icon                                                                |
-| fileTheme        | string   | 'light'                                         | Theme for the file icon                                                                     |
-| fileTreeStyle    | object   | { fontFamily: 'sans-serif', listStyle: 'none' } | Merge or change style attributes for the overall file tree                                  |
-| directoryStyle   | object   | { marginBottom: 3 }                             | Merge or change style attributes for the directory list items                               |
-| fileStyle        | object   | { marginBottom: 3 }                             | Merge or change style attributes for the file list items                                    |
-| ariaLabel        | string   |                                                 | react-fontawesome prop - An extra accessibility label to put on the icon                    |
-| border           | boolean  | false                                           | react-fontawesome prop - Whether or not to show a border radius                             |
-| fixedWidth       | boolean  | false                                           | react-fontawesome prop - Make buttons fixed width                                           |
-| flip             | string   | 'false'                                         | react-fontawesome prop - Flip the icon's orientation.                                       |
-| pulse            | boolean  | false                                           | react-fontawesome prop - Rotate icon with 8 steps, rather than smoothly                     |
-| rotate           | number   |                                                 | react-fontawesome prop - The degress to rotate the icon by                                  |
-| size             | string   |                                                 | react-fontawesome prop - The icon scaling size                                              |
-| spin             | boolean  | false                                           | react-fontawesome prop - Spin the icon                                                      |
-| tag              | string   | span                                            | react-fontawesome prop - The HTML tag to use as a string, eg 'i' or 'em'                    |
+| Property         | Type     | Options [default]                                 | Description                                                                                 |
+| :--------------- |:--------:| :----------------------------------------------:  | :------------------------------------------------------------------------------------------ |
+| directory        | string   |                                                   | The directory that acts as the tree root.                                                   |
+| onFileClick      | function |                                                   | A function to be performed when a user clicks a file list item (not a directory list item). |
+| directoryTheme   | string   | ['light'], 'dark'                                 | Theme for the directory icon                                                                |
+| fileTreeStyle    | object   | [{ fontFamily: 'sans-serif', listStyle: 'none' }] | Merge or change style attributes for the overall file tree                                  |
+| directoryStyle   | object   | [{ marginBottom: 3 }]                             | Merge or change style attributes for the directory list items                               |
+| fileStyle        | object   | [{ marginBottom: 3 }]                             | Merge or change style attributes for the file list items                                    |
 
 ## Development
 
