@@ -1,6 +1,6 @@
-flow-typed/
-app/dist/
-app/main.js
-node_modules
-dll
-__snapshots__
+example/flow-typed/
+example/app/dist/
+example/app/main.js
+example/node_modules
+example/dll
+example/__snapshots__

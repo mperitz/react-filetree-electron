@@ -26,29 +26,29 @@ build/Release
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
-app/node_modules
+example/app/node_modules
 
 # OSX
 .DS_Store
 
 # flow-typed
-flow-typed/npm/*
-!flow-typed/npm/module_vx.x.x.js
+example/flow-typed/npm/*
+!example/flow-typed/npm/module_vx.x.x.js
 
 # App packaged
+src/filetree-min.js
 release
-app/main.js
-app/main.js.map
-app/bundle.js
-app/bundle.js.map
-app/style.css
-app/style.css.map
-dist
-dll
-main.js
-main.js.map
-filetree-min.js
+example/app/main.js
+example/app/main.js.map
+example/app/bundle.js
+example/app/bundle.js.map
+example/app/style.css
+example/app/style.css.map
+example/dist
+example/dll
+example/main.js
+example/main.js.map
 
 .idea
-npm-debug.log.*
-__snapshots__
+example/npm-debug.log.*
+example/__snapshots__

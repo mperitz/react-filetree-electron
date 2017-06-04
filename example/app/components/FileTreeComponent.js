@@ -1,7 +1,7 @@
 // eslint-disable class-methods-use-this
 import React, { Component } from 'react';
 
-import FileTree from '../../../src/containers/FileTreeContainer';
+import FileTree from '../../../src/filetree-min.js';
 
 import { readFile } from '../utils/file-functions';
 
