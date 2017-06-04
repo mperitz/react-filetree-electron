@@ -1,5 +1,6 @@
 example
 test
+node_modules
 .gitignore
 .eslintignore
 .eslintrc
