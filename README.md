@@ -51,6 +51,7 @@ const directory = '/Users/Your-Name-Here/Directory'
 ```bash
 git clone https://github.com/mperitz/react-filetree-electron.git
 cd react-filetree-electron
+npm run build
 ```
 
 ### Please provide unit tests with any pull requests
