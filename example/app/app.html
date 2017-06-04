@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hello Electron React!</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <% if (htmlWebpackPlugin.options.dll) { %>
+    <script src="<%= htmlWebpackPlugin.options.dll %>"></script>
+    <% } %>
+  </body>
+</html>
