@@ -63,6 +63,9 @@ npm test
 
 #### To see changes in action:
 ```bash
+# first build
+npm run build
+# then run the example code
 cd example
 npm run dev
 ```
