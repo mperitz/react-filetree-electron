@@ -9,8 +9,8 @@ Promise.config({
 
 const fs = Promise.promisifyAll(require('fs'));
 
-// these functions access the file system
-// they all return promises
+// this function accesses the file system
+// it returns a promise
 
 const getAllFiles = (dir) => {
   return fs.readdirAsync(dir)

@@ -41,6 +41,7 @@ export default class FileSelector extends Component {
           directory={this.state.directory}
           onFileClick={this.clickTest}
           directoryTheme="dark"
+          fileTreeStyle={{ background: 'red' }}
         />}
       </div>
     );
