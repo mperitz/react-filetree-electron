@@ -46,30 +46,6 @@ const directory = '/Users/Your-Name-Here/Directory'
 | directoryStyle   | object   | [{ marginBottom: 3 }]                             | Merge or change style attributes for the directory list items                               |
 | fileStyle        | object   | [{ marginBottom: 3 }]                             | Merge or change style attributes for the file list items                                    |
 
-## Development
-
-```bash
-git clone https://github.com/mperitz/react-filetree-electron.git
-cd react-filetree-electron
-npm run build
-```
-
-### Please provide unit tests with any pull requests
-#### Jest was used for all initial tests, but feel free to use the library of your choice!
-#### Use file naming convention: name.spec.js
-```bash
-npm test
-```
-
-#### To see changes in action:
-```bash
-# first build
-npm run build
-# then run the example code
-cd example
-npm run dev
-```
-
 ## Special Thanks
 * react-electron-boilerplate was used for the example and for development purposes (https://github.com/chentsulin/electron-react-boilerplate)
 
