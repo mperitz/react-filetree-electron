@@ -2,12 +2,18 @@ import { connect, Provider } from 'react-redux';
 import React, { Component } from 'react';
 
 import FileTree from '../components/FileTree';
-import { toggleVisibility } from '../reducers/file-tree';
+import { toggleVisibility, openDirectory } from '../reducers/file-tree';
 import store from '../store';
 
-const mapState = state => ({ isVisible: state.fileTree.isVisible });
+const mapState = state => ({
+  isVisible: state.fileTree.isVisible,
+  openedDirectories: state.fileTree.openedDirectories
+});
 
-const mapDispatch = dispatch => ({ toggleVisibility: filePath => dispatch(toggleVisibility(filePath)) });
+const mapDispatch = dispatch => ({
+  toggleVisibility: filePath => dispatch(toggleVisibility(filePath)),
+  dispatchOpenDirectory: (filePath, files) => dispatch(openDirectory(filePath, files))
+});
 
 const ConnectFileTree = connect(mapState, mapDispatch)(FileTree);
 

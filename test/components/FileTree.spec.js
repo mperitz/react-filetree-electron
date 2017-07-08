@@ -1,7 +1,7 @@
 import React from 'react';
 import path from 'path';
 import { spy } from 'sinon';
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import chai from 'chai';
 import chaiEnzyme from 'chai-enzyme';
 chai.use(chaiEnzyme());
@@ -15,17 +15,17 @@ const setup = () => {
     directory: path.resolve(__dirname, '..', './fake-directory'),
     onFileClick: spy(),
     isVisible: {},
-    toggleVisibility: spy(),
+    toggleVisibility: spy()
   };
   const getAllFilesSpy = spy(fileFunctions, 'getAllFiles');
   const fileTree = mount(<FileTree {...props} />);
-  const setVisibilitySpy = spy(fileTree.instance(), 'setVisibility');
+  const handleDirectoryClickSpy = spy(fileTree.instance(), 'handleDirectoryClick');
   const onFileClickSpy = spy(fileTree.instance(), 'onFileClick');
   return {
     fileTree,
     props,
     getAllFilesSpy,
-    setVisibilitySpy,
+    handleDirectoryClickSpy,
     onFileClickSpy
   };
 };
@@ -42,7 +42,7 @@ describe('FileTree Component', () => {
 
   afterEach(() => {
     test.getAllFilesSpy.restore();
-    test.setVisibilitySpy.restore();
+    test.handleDirectoryClickSpy.restore();
     test.onFileClickSpy.restore();
   });
 
@@ -54,10 +54,6 @@ describe('FileTree Component', () => {
 
     afterEach(() => {
       test.getAllFilesSpy.restore();
-    });
-
-    it('should call getAllFiles in componentDidMount', () => {
-      expect(test.getAllFilesSpy.called).toEqual(true);
     });
 
     it('should call getAllFiles in componentWillReceiveProps', () => {
@@ -92,9 +88,9 @@ describe('FileTree Component', () => {
       expect(test.props.onFileClick.called).toEqual(true);
     });
 
-    it('should call the setVisibility function when directory list items are clicked', () => {
+    it('should call the handleDirectoryClick function when directory list items are clicked', () => {
       listItems.at(2).find('div').simulate('click');
-      expect(test.setVisibilitySpy.called).toEqual(true);
+      expect(test.handleDirectoryClickSpy.called).toEqual(true);
       expect(test.props.toggleVisibility.called).toEqual(true);
       expect(test.props.toggleVisibility.calledWith('./fakedir1/path/folder1')).toEqual(true);
     });

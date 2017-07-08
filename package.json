@@ -1,7 +1,7 @@
 {
   "name": "react-filetree-electron",
   "productName": "react-filetree-electron",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "An easily styled dynamic filetree component for use in native electron apps.",
   "main": "./src/filetree-min.js",
   "scripts": {
@@ -122,6 +122,8 @@
     "react-router-dom": "^4.1.1",
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^3.6.0",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "source-map-support": "^0.4.14"
   },

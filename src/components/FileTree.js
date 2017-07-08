@@ -12,25 +12,27 @@ export default class FileTree extends Component {
     this.state = {
       files: this.props ? this.props.files : []
     };
-    this.setVisibility = this.setVisibility.bind(this);
+    this.handleDirectoryClick = this.handleDirectoryClick.bind(this);
     this.onFileClick = this.onFileClick.bind(this);
   }
 
-  componentDidMount() {
-    return this.props.directory && this.props.directory.length &&
-    getAllFiles(this.props.directory)
-    .then(files => this.setState({ files }))
-    .catch(console.error);
-  }
-
   componentWillReceiveProps({ directory }) {
-    return directory && getAllFiles(directory)
-    .then(files => this.setState({ files }))
-    .catch(console.error);
+    if (this.props.openedDirectories && this.props.openedDirectories[directory]) {
+      this.setState({ files: this.props.openedDirectories[directory] });
+    } else {
+      return directory && getAllFiles(directory)
+      .then(files => this.setState({ files }))
+      .catch(console.error);
+    }
   }
 
-  setVisibility(filePath) {
-    this.props.toggleVisibility(filePath);
+  handleDirectoryClick(file) {
+    this.props.toggleVisibility(file.filePath);
+    if ((this.props.openedDirectories && !this.props.openedDirectories[file.filePath]) || this.props.isVisible[file.filePath]) {
+      return getAllFiles(file.filePath)
+      .then(files => this.props.dispatchOpenDirectory(file.filePath, files))
+      .catch(console.error);
+    }
   }
 
   onFileClick(file) {
@@ -56,7 +58,7 @@ export default class FileTree extends Component {
 
           return file.isDirectory ?
             <li className="_directory" key={filePath + ' Directory'} style={directoryStyle}>
-              <div onClick={() => this.setVisibility(file.filePath)}>
+              <div onClick={() => this.handleDirectoryClick(file)}>
                 <Directory className="directory" visible={this.props.isVisible[file.filePath]} theme={this.props.directoryTheme} />{`               ${fileName}`}
               </div>
               {this.props.isVisible[file.filePath] &&
@@ -65,6 +67,8 @@ export default class FileTree extends Component {
                 files={file.files}
                 onFileClick={this.props.onFileClick}
                 toggleVisibility={this.props.toggleVisibility}
+                dispatchOpenDirectory={this.props.dispatchOpenDirectory}
+                openedDirectories={this.props.openedDirectories}
                 directoryTheme={this.props.directoryTheme || 'light'}
                 isVisible={this.props.isVisible}
                 fileTreeStyle={this.props.fileTreeStyle}
